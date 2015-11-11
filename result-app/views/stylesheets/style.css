@@ -51,6 +51,6 @@ body{
   transition: width 400ms ease-in-out;
   display:inline-block;
   margin-bottom:-4px;
-  width:50%;
+  width:33%;
   height:100%;
 }

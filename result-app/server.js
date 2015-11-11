@@ -23,12 +23,7 @@ client.on("error", function (err) {
 });
 
 io.sockets.on('connection', function (socket) {
-
   socket.emit('message', { text : 'Welcome!' });
-
-  socket.on('subscribe', function (data) {
-    socket.join(data.channel);
-  });
 });
 
 client.on("ready", function(){
