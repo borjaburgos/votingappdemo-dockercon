@@ -14,16 +14,18 @@ results:
   links:
     - redis
   ports:
-    - '80:80'
+    - '8000:80'
 visualizer:
   image: 'tutum/visualizer:dceu'
   environment:
     - VISUALIZER_SHOW=false
   ports:
-    - '80:80'
+    - '8080:80'
   roles:
     - global
 voting:
   image: 'tutum.co/borjaburgos/voting:latest'
   links:
     - redis
+  deployment_strategy: high_availability
+
