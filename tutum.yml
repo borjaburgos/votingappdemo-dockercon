@@ -1,38 +1,29 @@
 lb:
   image: 'tutum/haproxy:latest'
   links:
-    - voting-app
+    - vote
   ports:
-    - '8080:80'
+    - '80:80'
   roles:
     - global
-  tags:
-    - prod
 redis:
   image: 'redis:latest'
-  tags:
-    - prod
-result-app:
-  image: 'tutum.co/maximeheckel/result-dceu:latest'
+results:
+  image: 'tutum.co/borjaburgos/results:latest'
   autoredeploy: true
   links:
     - redis
   ports:
-    - '5001:80'
-  tags:
-    - prod
+    - '80:80'
 visualizer:
-  image: 'tutum/visualizer:master'
+  image: 'tutum/visualizer:dceu'
   environment:
     - VISUALIZER_SHOW=false
   ports:
-    - '5003:3000'
+    - '80:80'
   roles:
     - global
-voting-app:
-  image: 'tutum.co/maximeheckel/voting-dceu:latest'
+voting:
+  image: 'tutum.co/borjaburgos/voting:latest'
   links:
     - redis
-  tags:
-    - prod
-  target_num_containers: 3
