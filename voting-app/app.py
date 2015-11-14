@@ -12,8 +12,8 @@ redis = Redis(host="redis", db=0)
 
 app = Flask(__name__)
 
-optionA = "Cats"
-optionB = "Dogs"
+optionA = "Devs"
+optionB = "Ops"
 
 name = optionA + " VS " + optionB
 
